@@ -4,10 +4,13 @@ import bcrypt from "bcrypt";
 import { TUserLogin, TUserRegister } from "./auth.interface";
 import UserModel from "./auth.model";
 import { createToken } from "./auth.utils";
+import connectDB from "@/database/connectDb";
 
+connectDB();
 
 const createUserIntoDB = async (payload: TUserRegister) => {
-    const { name, password, email } = payload;
+    console.log("🚀 ~ createUserIntoDB ~ payload:", payload)
+    const { name, tagline, password, email } = payload;
   
     // check for existing email
     const existEmail = await UserModel.findOne({ email });
@@ -20,6 +23,7 @@ const createUserIntoDB = async (payload: TUserRegister) => {
       const hashedPassword = await bcrypt.hash(password, 10);
       const data = await UserModel.create({
         name,
+        tagline,
         email,
         password: hashedPassword,
       });
@@ -29,6 +33,7 @@ const createUserIntoDB = async (payload: TUserRegister) => {
 
 
   const loginUserIntoDB = async (payload: TUserLogin) => {
+    console.log("🚀 ~ loginUserIntoDB ~ payload:", payload)
     const {email, password  } = payload;
   
     // check for existing email
@@ -44,6 +49,7 @@ const createUserIntoDB = async (payload: TUserRegister) => {
     if (password && user && checkedPassword) {
       const jwtPayload = {
         name: user?.name,
+        tagline: user?.tagline,
         userId: user?._id,
         role: user?.role,
         email: user?.email,

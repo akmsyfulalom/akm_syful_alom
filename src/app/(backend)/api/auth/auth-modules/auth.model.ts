@@ -14,8 +14,8 @@ const userSchema: Schema = new Schema<TUserRegister>({
   email: {
     type: String,
     required: true,
-    unique: true, // Ensure email addresses are unique
-    match: [/\S+@\S+\.\S+/, 'is invalid'], // Simple regex for email validation
+    unique: true, 
+    match: [/\S+@\S+\.\S+/, 'is invalid'], 
   },
   password: {
     type: String,
@@ -32,4 +32,4 @@ const userSchema: Schema = new Schema<TUserRegister>({
 
 const UserModel =  mongoose?.models?.user || mongoose?.model('user', userSchema);
 
-export default UserModel
+export default UserModel;

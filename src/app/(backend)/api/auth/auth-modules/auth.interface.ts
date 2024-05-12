@@ -3,8 +3,8 @@ export interface TUserLogin {
     password: string;
   }
   export interface TUserRegister {
-    name:string
-    tagline:string
+    name:string;
+    tagline:string;
     email: string;
     password: string;
     role:   'admin' | 'user' 

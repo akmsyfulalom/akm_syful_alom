@@ -1,4 +1,3 @@
-
 import { NextRequest, NextResponse } from "next/server";
 import { AuthService } from "../auth-modules/auth.service";
 

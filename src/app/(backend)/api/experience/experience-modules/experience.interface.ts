@@ -4,4 +4,5 @@ export interface TExperience {
     publicId: string; 
     title: string; 
     duration: string; 
+    eduOrSkill: string; 
 }

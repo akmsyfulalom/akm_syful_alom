@@ -1,13 +1,12 @@
 "use client";
 import Link from "next/link";
 import { Button } from "../ui/button";
-import {  Menu, ShoppingCart } from "lucide-react";
+import {  ArrowBigDownDash, Menu } from "lucide-react";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { CartDrawer } from "../Cart/cart-drawer";
-import { useCartDataContext } from "@/context/CartDataContext";
-import Image from "next/image";
 import { usePathname } from 'next/navigation';
-import dynamic from "next/dynamic";
+import { ModeToggle } from "../theme/theme-switch";
+import Container from "../utils/container";
+import Logo from "../utils/logo";
 
 type TMenu = {
   id: number;
@@ -16,13 +15,8 @@ type TMenu = {
 };
 
 const PrimaryNavbar = () => {
-  const ConditinalButton = dynamic(() =>import("../ui/ConditionalLazyLoadingComponents/ConditinalButton"), {ssr:false})
-  const {cartItems, setCartItems} = useCartDataContext() 
-  const currentPath = usePathname();
-
   
- 
-
+  const currentPath = usePathname();
   const menu: TMenu[] = [
     {
       id: 1,
@@ -37,7 +31,17 @@ const PrimaryNavbar = () => {
     {
       id: 2,
       title: "About Me",
-      link: "/about",
+      link: "#about",
+    },
+    {
+      id: 2,
+      title: "Experience",
+      link: "/experience",
+    },
+    {
+      id: 2,
+      title: "Skills",
+      link: "/skills",
     },
 
     {
@@ -48,21 +52,17 @@ const PrimaryNavbar = () => {
   ];
 
   return (
-    <div>
-      <header className="sticky top-0 flex h-16 items-center   gap-4 border-b bg-background px-4 md:px-6 ">
+    <Container>
+      <header className="sticky top-0 flex h-16 items-center   gap-4  bg-background px-4 md:px-6 ">
         <nav className="hidden flex-col gap-6 text-lg font-medium md:flex md:flex-row md:items-center  md:gap-5 md:text-lg lg:gap-6  ">
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-lg font-semibold md:text-base"
-          >
+         
             <div className="max-w-sm flex items-center justify-start gap-1 lg:mr-16">
                
-               <h1 className="text-4xl dark:!text-white font-bold whitespace-nowrap ">
-                Electric Drift Trike
-              </h1>
+               
+              <Logo />
              
             </div>
-          </Link>
+         
           {menu &&
             menu?.map((item, id) => (
               <Link
@@ -86,17 +86,13 @@ const PrimaryNavbar = () => {
             </Button>
           </SheetTrigger>
           <SheetContent side="left" className="z-[10000]">
+            
             <nav className="grid gap-6 text-lg font-medium">
-              <Link
-                href="/"
-                className="flex items-center gap-2 text-lg font-semibold"
-              >
+              
                 <div className="">
-                <h1 className="text-4xl dark:!text-white font-bold whitespace-nowrap ">
-                Electric Drift Trike
-              </h1>
+                <Logo />
                 </div>
-              </Link>
+            
 
               {menu &&
                 menu?.map((item, id) => (
@@ -114,20 +110,14 @@ const PrimaryNavbar = () => {
           </SheetContent>
         </Sheet>
         <div className="flex w-full items-center justify-end gap-4 md:ml-auto md:gap-2 lg:gap-4">
-          <Button variant="outline" className="relative">
-            <CartDrawer />
-            {cartItems?.length > 0 && (
-              <p className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-red-500 text-white rounded-full px-2 py-1">
-                {cartItems?.length}
-              </p>
-            )}
-          </Button>
-            <>
-          <ConditinalButton />
-          </>
+          
+          <Link href="/AKM_SYFUL_ALOM_Resume.pdf" target='_blank' download={true}><Button variant={"outline"} className="font-bold "><ArrowBigDownDash  className="shrink-0  mr-0.5" /> Get Resume</Button></Link>
+           
+         <ModeToggle />
+        
         </div>
       </header>
-    </div>
+    </Container>
   );
 };
 

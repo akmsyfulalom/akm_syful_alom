@@ -25,6 +25,10 @@ const ExperienceSchema = new Schema<TExperience>({
         type: String,
         required: true,
     },
+    eduOrSkill: {
+        type: String,
+        required: true,
+    },
 });
 
 // Collection name

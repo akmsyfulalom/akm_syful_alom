@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React from 'react';
 import { motion } from "framer-motion"
 
 const quote = {
@@ -30,16 +30,14 @@ const singleWord = {
     }
 };
 
-
-export default function AnimatedText({ text, className = "" }: any) {
-    return (
-        <div className='w-full mx-auto py-2 flex items-center justify-center text-center overflow-hidden sm:py-0'>
-            <motion.h1 className={`inline-block w-full     ${className}`}
-                variants={quote}
-               
-            >
-                {
-                    text.split(" ").map((word: any, index: any) =>
+export default function SectionTitle({ title, className = "" }: any) {
+  return (
+    <motion.h1
+      className={`text-2xl font-bold md:text-3xl lg:text-5xl text-center my-10 lg:my-24 ${className}`}
+      variants={quote}
+    >
+      {
+                    title.split(" ").map((word: any, index: any) =>
                         <motion.span key={word + '-' + index} className='inline-block'
                         variants={singleWord}
                         initial="initial"
@@ -50,8 +48,6 @@ export default function AnimatedText({ text, className = "" }: any) {
                         </motion.span>
                     )
                 }
-            </motion.h1>
-
-        </div>
-    )
+    </motion.h1>
+  );
 }

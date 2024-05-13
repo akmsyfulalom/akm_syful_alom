@@ -7,6 +7,10 @@ import { TExperience } from "./experience.interface";
 const ExperienceSchema = new Schema<TExperience>({
     companyName: {
         type: String,
+        required: false,
+    },
+    location: {
+        type: String,
         required: true,
     },
     logo: {
@@ -25,9 +29,17 @@ const ExperienceSchema = new Schema<TExperience>({
         type: String,
         required: true,
     },
+    certificate: {
+        type: String,
+        required: false,
+    },
     eduOrSkill: {
         type: String,
         required: true,
+    },
+    courseSummary: {
+        type: String,
+        required: false,
     },
 });
 

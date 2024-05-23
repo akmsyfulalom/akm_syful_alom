@@ -13,14 +13,14 @@ export default function Projects() {
     {
       title: "Meet Our Team",
       imageUrl:
-        "http://localhost:3000/_next/image?url=%2Fpictures%2Fakm%20syful%20alom%20web%20developer%20about%20us.jpg&w=750&q=75",
+        "https://akm-syful-alom.vercel.app/_next/image?url=%2Fpictures%2Fakm%20syful%20alom%20web%20developer%20about%20us.jpg&w=750&q=75",
       description:
         "Introducing team members dedicated to delivering quality web solutions.",
     },
     {
       title: "Developer Spotlight",
       imageUrl:
-        "http://localhost:3000/_next/image?url=%2Fpictures%2Fakm%20syful%20alom%20web%20developer%20about%20us.jpg&w=750&q=75",
+        "https://akm-syful-alom.vercel.app/_next/image?url=%2Fpictures%2Fakm%20syful%20alom%20web%20developer%20about%20us.jpg&w=750&q=75",
       description:
         "Highlighting the skills and achievements of our top developer.",
     },

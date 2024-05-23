@@ -6,44 +6,35 @@ import "./globals.css";
 import Providers from "@/providers/Provider";
 import { Toaster } from "sonner";
 import { ThemeProvider } from "@/components/theme/theme-provider";
-import NavbarAndFooterProvider from "@/providers/NavbarAndFooterProvider";
-
 // const inter = Inter({ subsets: ["latin"] });
 
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 
-
 export const metadata: Metadata = {
   title: "AKM SYFUL ALOM - Portfolio",
-  description: "As a skilled full-stack developer, I am dedicated to turning ideas into innovative web applications. Explore my latest projects and articles, showcasing my expertise in Full Stack Web App Development.",
+  description:
+    "As a skilled full-stack developer, I am dedicated to turning ideas into innovative web applications. Explore my latest projects and articles, showcasing my expertise in Full Stack Web App Development.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <Providers>
-       
-    <html lang="en">
-      <body className={spaceGrotesk.className}>
-      <ThemeProvider 
-         attribute="class"
-         defaultTheme="system"
-         enableSystem
-         disableTransitionOnChange
-      >
-        <Toaster />
-     <NavbarAndFooterProvider>
-     {children}
-     </NavbarAndFooterProvider>
-      
-      
-      </ThemeProvider>
-      </body>
-    </html>
-    
+      <html lang="en">
+        <body className={spaceGrotesk.className}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Toaster />
+
+            {children}
+          </ThemeProvider>
+        </body>
+      </html>
     </Providers>
   );
 }

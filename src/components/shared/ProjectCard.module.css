@@ -1,0 +1,20 @@
+.imageContainer {
+  height: 300px; /* Only the top 300px of the image will be visible initially */
+  overflow: hidden;
+  position: relative;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transition: transform 10s ease-in-out; /* Smooth transition for the scrolling effect */
+}
+
+.imageContainer:hover .image {
+  /* transform: translateY(-100%); */
+  transform: translateY(calc(-100% + 300px));
+  /* Scroll the image up to show the rest of it */
+}

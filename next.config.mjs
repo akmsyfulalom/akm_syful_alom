@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ["anamcoder.vercel.app", "www.masterappliancetech.com"]
+        domains: ["anamcoder.vercel.app", "www.masterappliancetech.com", "localhost"]
     }
 };
 

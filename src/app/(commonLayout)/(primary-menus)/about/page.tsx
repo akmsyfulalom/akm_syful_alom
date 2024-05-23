@@ -1,9 +1,10 @@
-import React from 'react'
+import AboutMe from "@/components/about/about-me";
+import Container from "@/components/utils/container";
 
 export default function page() {
   return (
-    <div>
-      about
-    </div>
-  )
+    <Container>
+      <AboutMe />
+    </Container>
+  );
 }

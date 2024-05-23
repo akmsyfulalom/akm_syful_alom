@@ -5,15 +5,14 @@ import SectionTitle from "../utils/section-title";
 import Image from "next/image";
 import { Button } from "../ui/button";
 
-export default function Skills() {
+export default function SkillSet() {
   return (
     <Container>
-      <div className="grid lg:grid-cols-2 gap-5 lg:gap-10">
+      <div className="flex flex-col gap-10 justify-center items-center">
         <div>
-          <SectionTitle
-            title="My Skills"
-            className="text-xl font-semibold  lg:text-2xl"
-          />
+          <h1 className="md:!text-2xl  !mb-2 !text-base font-semibold text-center my-10 lg:my-24 ">
+            Skills
+          </h1>
           <Button variant={"outline"} size={"lg"} className="!px-3 m-2">
             <div className="text-center flex justify-between items-center gap-1">
               <Image
@@ -68,10 +67,10 @@ export default function Skills() {
           </Button>
         </div>
         <div>
-          <SectionTitle
-            title="Tools I use every day"
-            className="text-xl font-semibold  lg:text-2xl"
-          />
+          <h1 className="md:!text-2xl  !mb-2 !text-base font-semibold text-center my-10 lg:my-24 ">
+            Tools I use every day
+          </h1>
+
           <Button variant={"outline"} size={"lg"} className="!px-3 m-2">
             <div className="text-center flex justify-between items-center gap-1">
               <Image
